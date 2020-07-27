@@ -1,120 +1,301 @@
-
 body {
-  margin: 0;
   padding: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
 }
-/*NAV STYLING*/
+/* --- NAV BAR --- */
+nav {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding: 0 5%;
+  height: 100px;
+  background-color: #333;
+  border-bottom: 25px solid #005F5F;
+}
 
-.navbar ul {
+nav .logo {
+  float: left;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+nav .nav-links {
+  float: right;
+  padding: 0;
+  margin: 0;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav .nav-links li {
   list-style: none;
-  background: rgb(50, 50, 50);
-  text-align: center;
-  padding: 0;
-  margin: 0;
 }
 
-.navbar li {
-  display: inline-block;
-}
-
-.navbar a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  width: 100px;
+nav .nav-links a {
   display: block;
-  padding: 15px;
-  font-size: 17px;
+  padding: 1em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
 }
 
-.navbar a:hover {
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+nav a:hover {
+  background-color: #005F5F
 }
 
-/*INTRO SYLING*/
-header {
-    text-align: center;
-    padding-top: 32px;
-    padding-bottom: 64px;
-    background-image: url(./images/bokeh-black.jpg);
-    background-size: cover;
-    background-position: center;
-    color: rgb(255, 255, 255);
-    line-height: 2.5;
+#nav-toggle {
+  position: absolute;
+  top: -100px;
+}
+
+nav .icon-burger {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav .icon-burger .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all .3s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  nav .logo {
+    float: none;
+    width: auto;
+    justify-content: center;
+  }
+
+  nav .nav-links {
+    float: none;
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(0, 0, 0, .5);
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+  }
+
+  nav .nav-links a {
+    font-size: 20px;
+  }
+
+  nav :checked ~ .nav-links {
+    bottom: 0;
+  }
+
+  nav .icon-burger {
+    display: block;
+  }
+
+  nav :checked ~ .icon-burger .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg)
+  }
+
+  nav :checked ~ .icon-burger .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg)
+  }
+  
+  nav :checked ~ .icon-burger .line:nth-child(2) {
+    opacity: 0;
+  }
+}
+
+/* --- BANNER/INTRO --- */
+
+.banner-area {
+  width: auto;
+  margin-top: 100px;
+  padding-top: 32px;
+  padding-bottom: 200px;
+  background-image: url(./images/bokeh-black.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+
+/* ---  SECTION STYLING --- */
+
+main {
+  padding: 20px 0;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.dark-theme {   
+  background-color: #000;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin: 80px 0;
+  color: #fff;
+}
+
+footer {
+  margin-top: 40px;
+  margin-bottom: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
 }
 
 h1 {
-  font-size: 62px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 2px 2px #005F5F
+}
+
+.banner-area h2 {
+  text-shadow: 2px 2px #005F5F;
 }
 
 h2 {
+  text-align: center;
   font-size: 42px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+  margin: 0 10px;
+  margin-bottom: 40px;
 }
 
-/*PROJECT SYLING*/
+.project-area h2, .contact-area h2, .about-area h2{
+  background-color: #005F5F;
+  color: #ffffff;
+}
 
-.projects-area {
+h3 {
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  font-size: 24px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 500;
 }
-
-/* ABOUT STYLING*/
-
-.about-area {
+.project-area p {
   text-align: center;
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 
-.about-area p {
-  font-size: 18px;
-  line-height: 20px;
-  padding: 0 25%;
+p {
+ font-family: 'Montserrat', sans-serif;
+ line-height: 1.5em;
+ margin-bottom: 0;
+}
+main img {
+  width: 100%;
+}
+
+img.image-enhanced {
+  border-radius: 8px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  flex: 1;
+  margin: 10px;
+}
+
+.item-double {
+  flex: 2;
 }
 
 
-/*CONTACT SYLING*/
+/* --- Contact Form Design --- */
+form {
+  margin-right: 10%;
+  margin-left: 10%;
+}
 
-.contact-area {
+form label {
+  display: block;
+}
+
+form input, 
+form textarea {
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+form textarea {
+  width: 100%;
+  height: 160px;
+
+}
+
+.contact-links {
   text-align: center;
   height: 300px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-.contact-area ul{
+.contact-links ul{
   list-style: none;
   text-align: center;
-  padding: 0;
   margin: 0;
 }
 
-.contact-area li {
+.contact-links li {
   display: inline-block;
 }
 
-.contacts img {
+.contact img {
   width: 50px;
   padding: 20px;
+  padding-right: 55px;
   
 }
 
-/*FOOTER STYLING*/
+/* ---  Desktop Flex Viewing --- */
 
-footer {
-  background: rgb(0, 0, 0);
-}
-
-footer p{
-  color: rgb(255, 255, 255);	
-  font-size: 10px;
-	text-align: center;
-  padding: 10px;
-  margin: 0;
+@media all and (min-width: 800px) {
+  section {
+    padding: 0 10%;
+  }
+  .group {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  form {
+    margin-left: 40%;
+    margin-right: 40%;
+  }
 }
