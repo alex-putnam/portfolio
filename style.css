@@ -196,6 +196,7 @@ h2 {
 
 .project-area h2, .contact-area h2, .about-area h2{
   background-color: #005F5F;
+  border-radius: 8px;
   color: #ffffff;
 }
 
